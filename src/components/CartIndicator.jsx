@@ -8,21 +8,18 @@ import Modal from "react-bootstrap/Modal";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = state => state;
 
-const mapDispatchToProps = (dispatch) => ({
-  setUserName: (username) =>
+const mapDispatchToProps = dispatch => ({
+  setUserName: username =>
     dispatch({ type: "SET_USER_NAME", payload: username }),
 });
 
 class CartIndicator extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showModal: false,
-      username: null,
-    };
-  }
+  state = {
+    showModal: false,
+    username: null,
+  };
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -62,7 +59,7 @@ class CartIndicator extends Component {
             <InputGroup className="mt-3">
               <FormControl
                 aria-label="user"
-                onChange={(e) =>
+                onChange={e =>
                   this.setState({ username: e.currentTarget.value })
                 }
               />

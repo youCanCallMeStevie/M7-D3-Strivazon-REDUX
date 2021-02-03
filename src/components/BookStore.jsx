@@ -5,15 +5,13 @@ import { Toast } from "react-bootstrap";
 import { books } from "../data/books";
 import { connect } from "react-redux";
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => state; //passing all of the state to our component, could have pass state.property such as state.cart
 class BookStore extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       bookSelected: null,
       showPopover: false,
     };
-  }
+  
 
   popOverToggle = () => {
     this.setState({ showPopover: !this.state.showPopover });

@@ -1,11 +1,13 @@
 export default function (state = {}, action) {
   switch (action.type) {
     case "ADD_ITEM_TO_CART":
-      return {
+       return {
+        //always returning an object
         ...state,
         cart: {
-          ...state.cart,
-          products: state.cart.products.concat(action.payload),
+          ...state.cart, //always spread the state, even if there is only one: future-proofing
+          //[...this.state.cart.products, action.payload],
+          products: state.cart.products.concat(action.payload), //same as above
         },
       };
     case "REMOVE_ITEM_FROM_CART":
